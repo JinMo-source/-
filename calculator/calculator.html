@@ -10,7 +10,7 @@
 <body>
     <div class="calculator">
         <form name="calculator">
-            <input type="text" name="result" class="sum" value="0">
+            <input type="text" name="result" class="input" value="0">
             <input type="text" name="result" class="result">
         </form>
         <div>
@@ -19,34 +19,34 @@
                 <button class="btn">←</button class="btn">
             </div>
             <div class="calculatorBtnSize">
-                <button type="button" class="btn add">%</button>
-                <button type="button" class="btn add">x²</button>
-                <button type="button" class="btn add">√</button>
-                <button type="button" class="btn add">÷</button>
+                <button type="button" class="btn add" data-type="per">%</button>
+                <button type="button" class="btn add" data-type="pow">x²</button>
+                <button type="button" class="btn add" data-type="sqrt">√</button>
+                <button type="button" class="btn add" data-type="divi">÷</button>
             </div>
             <div class="calculatorBtnSize">
-                <button type="button" class="btn number" data-aa="7">7</button>
-                <button type="button" class="btn number" data-type="8">8</button>
-                <button type="button" class="btn number" data-type="9">9</button>
-                <button type="button" class="btn add">X</button>
+                <button type="button" class="btn number" data-type="number">7</button>
+                <button type="button" class="btn number" data-type="number">8</button>
+                <button type="button" class="btn number" data-type="number">9</button>
+                <button type="button" class="btn add" data-type="multi">x</button>
             </div>
             <div class="calculatorBtnSize">
-                <button type="button" class="btn number" data-type="4">4</button>
-                <button type="button" class="btn number" data-type="5">5</button>
-                <button type="button" class="btn number" data-type="6">6</button>
-                <button type="button" class="btn add">-</button>
+                <button type="button" class="btn number" data-type="number">4</button>
+                <button type="button" class="btn number" data-type="number">5</button>
+                <button type="button" class="btn number" data-type="number">6</button>
+                <button type="button" class="btn add" data-type="minu">-</button>
             </div>
             <div class="calculatorBtnSize">
-                <button type="button" class="btn number" data-type="1">1</button>
-                <button type="button" class="btn number" data-type="2">2</button>
-                <button type="button" class="btn number" data-type="3">3</button>
-                <button type="button" class="btn add">+</button>
+                <button type="button" class="btn number" data-type="number">1</button>
+                <button type="button" class="btn number" data-type="number">2</button>
+                <button type="button" class="btn number" data-type="number">3</button>
+                <button type="button" class="btn add" data-type="plus">+</button>
             </div>
             <div class="calculatorBtnSize">
-                <button type="button" class="btn add">+/-</button>
-                <button type="button" class="btn number" data-type="0">0</button>
-                <button type="button" class="btn">.</button>
-                <button type="button" class="btn">=</button>
+                <button type="button" class="btn add" data-type="change">+/-</button>
+                <button type="button" class="btn number" data-type="number">0</button>
+                <button type="button" class="btn" data-type="dot">.</button>
+                <button type="button" class="btn" data-type="sum">=</button>
             </div>
         </div>
     </div>
