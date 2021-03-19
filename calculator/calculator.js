@@ -69,13 +69,13 @@ class Calculator {
       }
 
 
-      // ac
+      // 초기화
     clear() {
         this,result.value = '';
         this.process.value = '';
     }
 
-    // bakc
+    // back
     back(){
         if(this.result.value==='')return;
         if (this.result.value === "Error") this.result.value = "";
