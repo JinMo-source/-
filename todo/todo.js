@@ -1,14 +1,19 @@
 // model
 
-let model = (function(){
+let Data = (function(){
     let list = [];
 
     const Item = function(contents){
+
+      console.log(contents);
         this.contents =contents;
+        console.log(this.contents);
     }
+
     const addItem = function(contents){
-        const Item = new Item(contents);
-        Item.push(contents);
+        let item = new Item(contents);
+        console.log(item);
+        list.push(item);
     }
 
     return {
@@ -19,19 +24,20 @@ let model = (function(){
 })();
 
 //control
-    function controls(){
+    const controls = (function controls(){
         const addItem = function(e){
             e.preventDefault();
-            const add_value = addItemInput.value;
+            const add_value = aa.value;
             Data.addItem(add_value);
-            UI.showList(add_value)
+            UI.showList(Data.list)
 
         }
-        let form = document.querySelector('.list-form');
-        let addItemInput = form.querySelector('.add-item__input');
+        let form = document.querySelector('#list-form');
+        let addItemInput = form.querySelector('.list-form__add-item');
+        let aa = addItemInput.querySelector('#add-item__input');
         
         form.addEventListener('submit',addItem);
-    }();
+    })();
 
     
 //view
