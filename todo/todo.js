@@ -5,15 +5,24 @@ let Data = (function(){
 
     const Item = function(contents){
 
-      console.log(contents);
+      // 이해가 안되는 부분 21.03.19
+      // 개념 : 바인딩 개념을 찾아보면 나온다. 21.03.21
+      // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/new
+      // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/class
+      
         this.contents =contents;
-        console.log(this.contents);
     }
 
     const addItem = function(contents){
+
+      // 이해가 안되는 부분 21.03.19
+      // let Item = new Item(contents)를 사용하면 Item은 list = [{contents:'a'},contents:'b']라는 객체 형태로 저장이 된다
         let item = new Item(contents);
-        console.log(item);
-        list.push(item);
+        list.push(item);``
+    }
+
+    const removeItem = function(contents){
+        
     }
 
     return {
@@ -27,14 +36,14 @@ let Data = (function(){
     const controls = (function controls(){
         const addItem = function(e){
             e.preventDefault();
-            const add_value = aa.value;
+            const add_value = Item.value;
             Data.addItem(add_value);
             UI.showList(Data.list)
-
+            Item.value = '';
         }
         let form = document.querySelector('#list-form');
         let addItemInput = form.querySelector('.list-form__add-item');
-        let aa = addItemInput.querySelector('#add-item__input');
+        let Item = addItemInput.querySelector('#add-item__input');
         
         form.addEventListener('submit',addItem);
     })();

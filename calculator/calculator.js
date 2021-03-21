@@ -56,12 +56,16 @@ class Calculator {
     calc() {
         this.answer = this.process.value + this.result.value;
         this.process.value = "";
+        // 이해가 안되는 부분 2021.03.16
+        // 정규 표현식
         if (/[^0-9]/.test(this.answer.substr(-1))) {
           this.answer = this.answer.substr(0, this.answer.length - 1);
         }
         if (/-{2,}/.test(this.answer)) {
           this.answer = this.replaceAll(this.answer, "--", "+");
         }
+        // 이해가 안되는 부분 2021.03.16
+        // eval 사용법 파악하기
         this.result.value = eval(this.answer);
       }
       replaceAll(str, searchStr, replaceStr) {
