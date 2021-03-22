@@ -65,7 +65,7 @@ class Calculator {
           this.answer = this.replaceAll(this.answer, "--", "+");
         }
         // 이해가 안되는 부분 2021.03.16
-        // eval 사용법 파악하기
+        // eval
         this.result.value = eval(this.answer);
       }
       replaceAll(str, searchStr, replaceStr) {
