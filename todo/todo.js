@@ -1,5 +1,4 @@
 // model
-
 let Data = (function(){
     let list = [];
 
@@ -50,11 +49,11 @@ let Data = (function(){
         const addItem = function(e){
             e.preventDefault();
             const add_value = Item.value;
+            console.log(Item);
             Data.addItem(add_value);
             UI.showList(Data.list)
             Item.value = '';
 
-            UI.showList(Data.list);
         }
         
         // CONTROL-SEARCH
@@ -169,3 +168,6 @@ var UI = (function(){
     showList: showList
   };
 })();
+
+
+

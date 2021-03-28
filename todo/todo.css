@@ -165,9 +165,6 @@ li {
   }
 }
 
-li:hover {
-/*  border-color: var(--color-secondary); */
-}
 
 .item__content {
   max-width: 80%;
