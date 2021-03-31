@@ -16,7 +16,8 @@ function addItem(e){
     e.preventDefault();
     const add_Item = inputName.value;
     const add_Price = inputPrice.value;
-    add(add_Item,add_Price);
+    const add_Img = document.getElementById("preview-image").src;
+    add(add_Item,add_Price,add_Img);
 }
 
 function readImage(input) {
@@ -35,9 +36,9 @@ function readImage(input) {
     }
 }
 // input file에 change 이벤트 부여
-const inputImage = document.getElementById("input-img")
+const inputImage = document.getElementById("input-img");
 inputImage.addEventListener("change", e => {
-    readImage(e.target)
+    readImage(e.target);
 })
 
 
@@ -58,7 +59,7 @@ function view(name,price){
       const li = `<li id=${ind} class = shop-list>
             <p>${el.name}</p>
             <p>${el.price}</p>
-            
+            <img src="${el.img}" alt=${el.name} />            
         </li>`
 
         ul.insertAdjacentHTML('afterbegin', li);
