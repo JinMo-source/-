@@ -7,7 +7,6 @@ function Item(name,price,img){
 }
 function add(name,price,img){
     let item = new Item(name,price,img);
-    console.log(item);
     list.push(item);
     view(list);
 }
@@ -16,8 +15,18 @@ function addItem(e){
     e.preventDefault();
     const add_Item = inputName.value;
     const add_Price = inputPrice.value;
-    const add_Img = document.getElementById("preview-image").src;
+    const add_Img = previewImage.src;
+
+    if(previewImage.src === "http://placehold.it/100x100"){
+        return alert("이미지를 선택하세요")
+    };
+
     add(add_Item,add_Price,add_Img);
+
+    inputName.value = "";
+    inputPrice.value = "";
+    inputImg.value = "";
+    previewImage.src = 'http://placehold.it/100x100';
 }
 
 function readImage(input) {
@@ -28,7 +37,7 @@ function readImage(input) {
         const reader = new FileReader()
         // 이미지가 로드가 된 경우
         reader.onload = e => {
-            const previewImage = document.getElementById("preview-image")
+            
             previewImage.src = e.target.result
         }
         // reader가 이미지 읽도록 하기
@@ -46,6 +55,7 @@ const form = document.forms['shop-form'];
 const inputName = document.querySelector('#input-name');
 const inputPrice = document.querySelector('#input-price');
 const inputImg = document.querySelector("#input-img");
+const previewImage = document.getElementById("preview-image")
 form.addEventListener('submit',addItem);
 // views
 
@@ -53,9 +63,9 @@ form.addEventListener('submit',addItem);
 function view(name,price){
 
     const ul = document.querySelector('.shop-ul');        
+    ul.innerHTML = '';
 
     list.forEach((el,ind)=>{
-        console.log(el);
       const li = `<li id=${ind} class = shop-list>
             <p>${el.name}</p>
             <p>${el.price}</p>
