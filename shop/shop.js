@@ -1,18 +1,32 @@
 //model
 let list = [];
+
 function Item(name,price,img){
     this.name=name;
     this.price = price;
     this.img = img;
 }
+
 function add(name,price,img){
     let item = new Item(name,price,img);
+
     list.push(item);
     view(list);
 }
+
+function remove(removeIndex){
+    list.splice(removeIndex,1);
+    view();
+}
+
+function fix(fixIndex){
+    console.log(fixIndex);
+}
+
 // controls
 function addItem(e){
     e.preventDefault();
+
     const add_Item = inputName.value;
     const add_Price = inputPrice.value;
     const add_Img = previewImage.src;
@@ -27,6 +41,7 @@ function addItem(e){
     inputPrice.value = "";
     inputImg.value = "";
     previewImage.src = 'http://placehold.it/100x100';
+
 }
 
 function readImage(input) {
@@ -44,6 +59,24 @@ function readImage(input) {
         const readerImg = reader.readAsDataURL(input.files[0])
     }
 }
+
+function removeItem(e){
+    if(e.target.tagName !== "INPUT") return;
+
+    const removeIndex = e.target.id;
+    remove(removeIndex);
+
+}
+
+function fixItem(e){
+    if(e.target.tagName !== "BOTTON") return;
+    console.log(e);
+    const fixId = e.target.id;
+    const fixIndex = fixId.split('-');
+    console.log(fixIndex);
+    fix(fixIndex);
+}
+
 // input file에 change 이벤트 부여
 const inputImage = document.getElementById("input-img");
 inputImage.addEventListener("change", e => {
@@ -57,23 +90,31 @@ const inputPrice = document.querySelector('#input-price');
 const inputImg = document.querySelector("#input-img");
 const previewImage = document.getElementById("preview-image")
 form.addEventListener('submit',addItem);
+
+
+const ul = document.querySelector('.shop-ul');        
+ul.addEventListener('click',removeItem);
+ul.addEventListener('click',fixItem);
 // views
 
 
 function view(name,price){
 
-    const ul = document.querySelector('.shop-ul');        
     ul.innerHTML = '';
 
-    list.forEach((el,ind)=>{
-      const li = `<li id=${ind} class = shop-list>
+    list.forEach((el,ind)=>
+    {
+      const li =
+      `<li id=list-${ind}" class = "shop-list">
             <p>${el.name}</p>
             <p>${el.price}</p>
-            <img src="${el.img}" alt=${el.name} />            
+            <img src="${el.img}" alt=${el.name} /> 
+            <input type = "checkbox"id="${ind}" class="btn" />
+            <button id="button-${ind}" class="fix">수정</botton>
         </li>`
 
         ul.insertAdjacentHTML('afterbegin', li);
     })
-    
-    
+       
 }
+
